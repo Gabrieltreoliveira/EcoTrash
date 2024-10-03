@@ -1,0 +1,128 @@
+/* Estilo Geral do Corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do Cabeçalho */
+header {
+    background-color: #28a745; /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto */
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Estilo do Menu de Navegação */
+nav {
+    margin: 20px 0;
+}
+
+nav ul {
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* Exibe os itens do menu em linha */
+    margin: 0 15px; /* Espaçamento entre os itens do menu */
+}
+
+nav ul li a {
+    color: white; /* Cor do texto do link */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Negrito nos links */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+
+/* Estilo Principal */
+main {
+    max-width: 800px; /* Largura máxima do conteúdo */
+    margin: 20px auto; /* Centraliza o conteúdo */
+    padding: 20px; /* Preenchimento interno */
+    background-color: white; /* Cor de fundo do conteúdo */
+    border-radius: 8px; /* Arredonda os cantos */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo das Seções da Calculadora */
+.calculo-container {
+    margin-bottom: 20px; /* Espaçamento entre as seções */
+    padding: 20px; /* Preenchimento interno */
+    border: 1px solid #ccc; /* Borda da seção */
+    border-radius: 5px; /* Arredondamento da borda */
+    background-color: #f9f9f9; /* Cor de fundo da seção */
+}
+
+/* Estilo dos Títulos das Seções */
+h2 {
+    color: #28a745; /* Cor dos títulos */
+}
+
+/* Estilo dos Botões */
+button {
+    background-color: #28a745; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 15px; /* Preenchimento interno do botão */
+    border-radius: 5px; /* Arredondamento da borda do botão */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    font-weight: bold; /* Negrito no texto do botão */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+button:hover {
+    background-color: #218838; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo das Mensagens de Resultado */
+.resultado {
+    margin-top: 10px; /* Espaçamento acima do resultado */
+    font-size: 1.1em; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilo dos Alertas */
+.alerta {
+    margin-top: 10px; /* Espaçamento acima do alerta */
+    font-size: 1em; /* Tamanho da fonte */
+    color: red; /* Cor do texto dos alertas */
+}
+
+/* Estilo das Dicas */
+.dicas-container {
+    margin-top: 20px; /* Espaçamento acima da seção de dicas */
+}
+
+.dicas-list {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento da lista */
+}
+
+/* Estilo do Iframe */
+iframe {
+    width: 100%; /* Largura total do iframe */
+    height: 315px; /* Altura fixa do iframe */
+    border: none; /* Remove a borda do iframe */
+    margin-top: 10px; /* Espaçamento acima do iframe */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    nav ul li {
+        display: block; /* Exibe os itens do menu em bloco em telas menores */
+        margin: 5px 0; /* Espaçamento vertical entre os itens do menu */
+    }
+
+    main {
+        padding: 10px; /* Menos preenchimento em telas menores */
+    }
+
+    button {
+        width: 100%; /* Botões ocupam a largura total em telas menores */
+    }
+}

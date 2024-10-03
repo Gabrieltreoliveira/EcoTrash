@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Consumo - EcoTrash</title>
+    <link rel="stylesheet" href="calculo.css">
+    <script src="calculo_carbono.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Consumo - EcoTrash</h1>
+        <!-- Menu de Navegação -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção da Calculadora de Carbono -->
+        <div class="calculo-container">
+            <h2>Calcule sua Pegada de Carbono</h2>
+            <form id="form-carbono">
+                <label for="transporte">Transporte (km por semana):</label>
+                <input type="number" id="transporte" name="transporte" required>
+
+                <label for="energia">Consumo de Energia (kWh por mês):</label>
+                <input type="number" id="energia" name="energia" required>
+
+                <button type="submit">Calcular</button>
+            </form>
+
+            <div id="resultado-carbono" class="resultado"></div>
+            <div id="alerta-energia" class="alerta"></div>
+        </div>
+
+        <!-- Seção da Calculadora de Água -->
+        <div class="calculo-container">
+            <h2>Calcule seu Consumo de Água</h2>
+            <form id="form-agua">
+                <label for="agua">Consumo de Água (litros por mês):</label>
+                <input type="number" id="agua" name="agua" required>
+
+                <button type="submit">Calcular</button>
+            </form>
+
+            <div id="resultado-agua" class="resultado"></div>
+            <div id="alerta-agua" class="alerta"></div>
+        </div>
+
+        <!-- Seção da Calculadora de Resíduos -->
+        <div class="calculo-container">
+            <h2>Calcule seu Consumo de Resíduos</h2>
+            <form id="form-residuos">
+                <label for="residuos">Resíduos (kg por semana):</label>
+                <input type="number" id="residuos" name="residuos" required>
+
+                <button type="submit">Calcular</button>
+            </form>
+
+            <div id="resultado-residuos" class="resultado"></div>
+        </div>
+
+        <!-- Nova Seção da Calculadora de Emissões de Gás -->
+        <div class="calculo-container">
+            <h2>Calcule suas Emissões de Gás</h2>
+            <form id="form-gas">
+                <label for="combustivel">Tipo de Combustível (litros por mês):</label>
+                <input type="number" id="combustivel" name="combustivel" required>
+
+                <button type="submit">Calcular</button>
+            </form>
+
+            <div id="resultado-gas" class="resultado"></div>
+        </div>
+
+        <!-- Nova Seção da Calculadora de Economia de Água -->
+        <div class="calculo-container">
+            <h2>Calcule sua Economia de Água</h2>
+            <form id="form-economia">
+                <label for="economia">Água economizada (litros por mês):</label>
+                <input type="number" id="economia" name="economia" required>
+
+                <button type="submit">Calcular</button>
+            </form>
+
+            <div id="resultado-economia" class="resultado"></div>
+        </div>
+
+        <!-- Nova Seção da Calculadora de Reciclagem -->
+        <div class="calculo-container">
+            <h2>Calcule seu Impacto de Reciclagem</h2>
+            <form id="form-reciclagem">
+                <label for="reciclados">Resíduos reciclados (kg por mês):</label>
+                <input type="number" id="reciclados" name="reciclados" required>
+
+                <button type="submit">Calcular</button>
+            </form>
+
+            <div id="resultado-reciclagem" class="resultado"></div>
+        </div>
+
+        <!-- Seção de Alertas -->
+        <div class="alert-container" id="alert-container">
+            <h2>Dicas para Redução do Consumo</h2>
+            <ul id="lista-alertas"></ul>
+        </div>
+
+        <!-- Seção de Dicas e Vídeos Institucionais -->
+        <div class="dicas-container">
+            <h2>Dicas e Vídeos Institucionais</h2>
+            <ul class="dicas-list">
+                <li>Dica 1: Separe seu lixo corretamente.</li>
+                <li>Dica 2: Compre produtos sustentáveis.</li>
+                <li>Dica 3: Faça compostagem em casa.</li>
+            </ul>
+            <h3>Vídeos Institucionais</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoID" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </main>
+    
+    <script>
+        // Código JavaScript para calcular carbono, água, resíduos, emissões de gás, economia de água e reciclagem
+        document.getElementById('form-carbono').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const transporte = document.getElementById('transporte').value;
+            const energia = document.getElementById('energia').value;
+            const pegadaCarbono = (transporte * 0.2) + (energia * 0.5);
+            document.getElementById('resultado-carbono').innerText = `Sua pegada de carbono é: ${pegadaCarbono.toFixed(2)} kg CO₂/ano`;
+            
+            // Alerta para consumo de energia
+            const alertaEnergia = document.getElementById('alerta-energia');
+            if (energia > 300) {
+                alertaEnergia.innerText = "Alerta: Seu consumo de energia excede o padrão recomendado de 300 kWh por mês!";
+                alertaEnergia.style.color = "red";
+            } else {
+                alertaEnergia.innerText = "";
+            }
+        });
+
+        document.getElementById('form-agua').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const agua = document.getElementById('agua').value;
+            const consumoAgua = agua * 30;
+            document.getElementById('resultado-agua').innerText = `Seu consumo de água é: ${consumoAgua.toFixed(2)} litros/mês`;
+
+            // Alerta para consumo de água
+            const alertaAgua = document.getElementById('alerta-agua');
+            if (consumoAgua > 3000) {
+                alertaAgua.innerText = "Alerta: Seu consumo de água excede o padrão recomendado de 3000 litros por mês!";
+                alertaAgua.style.color = "red";
+            } else {
+                alertaAgua.innerText = "";
+            }
+        });
+
+        document.getElementById('form-residuos').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const residuos = document.getElementById('residuos').value;
+            const consumoResiduos = residuos * 52;
+            document.getElementById('resultado-residuos').innerText = `Seu consumo de resíduos é: ${consumoResiduos.toFixed(2)} kg/ano`;
+        });
+
+        document.getElementById('form-gas').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const combustivel = document.getElementById('combustivel').value;
+            const emissaoGas = combustivel * 2.3; // Exemplo de cálculo
+            document.getElementById('resultado-gas').innerText = `Suas emissões de gás são: ${emissaoGas.toFixed(2)} kg CO₂/ano`;
+        });
+
+        document.getElementById('form-economia').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const economia = document.getElementById('economia').value;
+            const impactoEconomia = economia * 12; // Exemplo de cálculo
+            document.getElementById('resultado-economia').innerText = `Você economiza: ${impactoEconomia.toFixed(2)} litros/mês`;
+        });
+
+        document.getElementById('form-reciclagem').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const reciclados = document.getElementById('reciclados').value;
+            const impactoReciclagem = reciclados * 0.5; // Exemplo de cálculo
+            document.getElementById('resultado-reciclagem').innerText = `Seu impacto de reciclagem é: ${impactoReciclagem.toFixed(2)} kg CO₂ evitados/ano`;
+        });
+
+        // Função para adicionar dicas
+        function adicionarDica(dica) {
+            const listaAlertas = document.getElementById('lista-alertas');
+            const item = document.createElement('li');
+            item.innerText = dica;
+            listaAlertas.appendChild(item);
+        }
+
+        // Adicione dicas gerais
+        adicionarDica("Diminua o tempo do banho para economizar água.");
+        adicionarDica("Desligue os aparelhos eletrônicos quando não estiverem em uso.");
+        adicionarDica("Prefira transporte público ou bicicleta para reduzir a emissão de carbono.");
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Carbono - EcoTrash</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="calculo_carbono.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Carbono - EcoTrash</h1>
+    </header>
+
+    <main>
+        <div class="calculo-container">
+            <h2>Calcule sua Pegada de Carbono</h2>
+            <form id="form-carbono">
+                <label for="transporte">Transporte (km por semana):</label>
+                <input type="number" id="transporte" name="transporte" required>
+
+                <label for="energia">Consumo de Energia (kWh por mês):</label>
+                <input type="number" id="energia" name="energia" required>
+
+                <button type="submit">Calcular</button>
+            </form>
+
+            <div id="resultado-carbono" class="resultado">
+                <!-- O resultado será exibido aqui -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>
